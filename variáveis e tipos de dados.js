@@ -18,6 +18,7 @@ if (true) {
   let idade = 30;
   console.log(idade); // 30
 }
+
 // console.log(idade); ❌ erro: idade is not defined
 
 //  🔸 const
