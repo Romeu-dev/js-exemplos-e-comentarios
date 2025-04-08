@@ -154,3 +154,130 @@ switch (caixa) {
   default:
     console.log("Opção invalida");
 }
+
+// ==============================
+// 🔍 CONDICIONAIS AVANÇADAS EM JAVASCRIPT
+// ==============================
+
+// ---------------------------------
+// ✅ Operador Ternário (condição ? valor1 : valor2)
+let idade2 = 20;
+let acesso = idade2 >= 18 ? "Permitido" : "Negado";
+console.log(acesso); // Permitido
+
+// Pode ser usado para retornar valores de forma mais enxuta:
+let numero1 = 5;
+let tipo = numero % 2 === 0 ? "Par" : "Ímpar";
+console.log(tipo); // Ímpar
+
+// ---------------------------------
+// ✅ Encadeamento de ternários (cuidado com legibilidade!)
+let nota = 7.5;
+let resultado =
+  nota >= 9
+    ? "Excelente"
+    : nota >= 7
+    ? "Aprovado"
+    : nota >= 5
+    ? "Recuperação"
+    : "Reprovado";
+console.log(resultado); // Aprovado
+
+// ---------------------------------
+// ✅ Switch - alternativa ao if-else com muitas opções
+let dia = "terça";
+
+switch (dia) {
+  case "segunda":
+    console.log("Início da semana");
+    break;
+  case "terça":
+  case "quarta":
+  case "quinta":
+    console.log("Meio da semana");
+    break;
+  case "sexta":
+    console.log("Sextou!");
+    break;
+  case "sábado":
+  case "domingo":
+    console.log("Fim de semana");
+    break;
+  default:
+    console.log("Dia inválido");
+}
+
+// ---------------------------------
+// ✅ Short-circuit (curto-circuito lógico)
+
+// AND (&&) - só executa a segunda parte se a primeira for verdadeira
+let logado = true;
+logado && console.log("Usuário está logado"); // Executa
+
+// OR (||) - usa valor alternativo se o primeiro for falso
+let nomeUsuario = "";
+let nomeFinal = nomeUsuario || "Visitante";
+console.log(nomeFinal); // "Visitante"
+
+// ---------------------------------
+// ✅ Nullish Coalescing (??) - considera apenas null ou undefined como falsos
+let valor = 0;
+let resultadoFinal = valor ?? 100; // NÃO considera 0 como "falsy"
+console.log(resultadoFinal); // 0
+
+// ---------------------------------
+// ✅ Optional chaining (?.) - evita erro se propriedade não existir
+let usuario = {
+  nome: "Lucas",
+  endereco: {
+    cidade: "São Paulo",
+  },
+};
+
+console.log(usuario.endereco?.cidade); // São Paulo
+console.log(usuario.contato?.telefone); // undefined (sem erro)
+
+// ---------------------------------
+// 💪 DESAFIOS PRÁTICOS
+// ---------------------------------
+
+// 1. Use ternário para verificar se uma pessoa pode votar
+let idadePessoa = 17;
+let podeVotar = idadePessoa >= 16 ? "Pode votar" : "Não pode votar";
+console.log(podeVotar);
+
+// 2. Use switch para identificar o tipo de fruta
+let fruta = "maçã";
+
+switch (fruta) {
+  case "banana":
+    console.log("Banana é rica em potássio.");
+    break;
+  case "maçã":
+    console.log("Maçã ajuda na digestão.");
+    break;
+  case "laranja":
+    console.log("Laranja tem muita vitamina C.");
+    break;
+  default:
+    console.log("Fruta não reconhecida.");
+}
+
+// 3. Use short-circuit para mostrar uma mensagem se um usuário estiver autenticado
+let autenticado = false;
+autenticado && console.log("Bem-vindo de volta!");
+
+// 4. Use optional chaining para acessar o nome de um animal
+let animal = {
+  especie: "Gato",
+  // nome não está definido
+};
+console.log(animal?.nome ?? "Nome desconhecido");
+
+// 5. Crie uma função que recebe uma nota e retorne o conceito:
+function conceito(nota) {
+  return nota >= 9 ? "A" : nota >= 7 ? "B" : nota >= 5 ? "C" : "D";
+}
+console.log(conceito(8)); // B
+
+// Fim da parte avançada de condicionais 🧠💡

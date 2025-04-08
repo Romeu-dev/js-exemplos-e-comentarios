@@ -76,4 +76,81 @@ console.log(nomeCompleto.charAt(nomeCompleto.length - 1)); // "a"
 let idade = 25;
 console.log(`Olá, meu nome é ${nomeCompleto} e tenho ${idade} anos.`);
 
-// Fim! 🚀
+// ==============================
+// 🔍 MÉTODOS MAIS AVANÇADOS DE STRINGS
+// ==============================
+
+let texto = "JavaScript é uma linguagem poderosa e flexível.";
+
+// split() - Divide a string em um array
+let palavras = texto.split(" "); // separa por espaço
+console.log(palavras);
+// ["JavaScript", "é", "uma", "linguagem", "poderosa", "e", "flexível."]
+
+// join() - Junta os elementos de um array em uma string
+let fraseMontada = palavras.join(" - ");
+console.log(fraseMontada);
+// "JavaScript - é - uma - linguagem - poderosa - e - flexível."
+
+// repeat() - Repete a string várias vezes
+let risada = "ha".repeat(5);
+console.log(risada); // "hahahahaha"
+
+// padStart() - Adiciona caracteres no início da string até atingir um comprimento
+let codigo = "7";
+console.log(codigo.padStart(4, "0")); // "0007"
+
+// padEnd() - Adiciona caracteres no final da string
+console.log(codigo.padEnd(4, "*")); // "7***"
+
+// startsWith() e endsWith() - Verifica início ou fim da string
+console.log(texto.startsWith("Java")); // true
+console.log(texto.endsWith(".")); // true
+
+// match() - Retorna resultado de uma expressão regular
+let resultado = texto.match(/\b\w{6}\b/g); // palavras com 6 letras
+console.log(resultado); // ["Script", "poderosa"]
+
+// search() - Busca com regex e retorna o índice
+console.log(texto.search(/linguagem/)); // 18
+
+// localeCompare() - Compara duas strings em ordem alfabética (útil para ordenação)
+console.log("banana".localeCompare("abacate")); // 1 (banana vem depois)
+console.log("abacate".localeCompare("banana")); // -1
+
+// normalize() - Normaliza acentuação (útil pra comparar textos com e sem acento)
+let acentuado = "ação";
+let normalizado = acentuado.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+console.log(normalizado); // "acao"
+
+// ------------------------------
+// 🧠 EXERCÍCIOS DESAFIO
+// ------------------------------
+
+// 1. Crie uma função que conte quantas palavras existem em uma frase
+function contarPalavras(frase) {
+  return frase.trim().split(/\s+/).length;
+}
+console.log(contarPalavras("  Programar em JavaScript é divertido! ")); // 5
+
+// 2. Verifique se um texto termina com ponto final
+function terminaComPonto(texto) {
+  return texto.trim().endsWith(".");
+}
+console.log(terminaComPonto("Essa frase termina com ponto.")); // true
+
+// 3. Remova os acentos de uma string
+function removerAcentos(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+console.log(removerAcentos("Olá, você gosta de programação?")); // "Ola, voce gosta de programacao?"
+
+// 4. Formate um número de 1 a 999 como código com 3 dígitos
+function formatarCodigo(num) {
+  return String(num).padStart(3, "0");
+}
+console.log(formatarCodigo(7)); // "007"
+console.log(formatarCodigo(85)); // "085"
+console.log(formatarCodigo(999)); // "999"
+
+// Fim da parte avançada 🚀

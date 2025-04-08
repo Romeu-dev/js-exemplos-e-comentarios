@@ -162,3 +162,142 @@ console.log(Boolean("")); // false (string vazia)
 console.log(Boolean(null)); // false
 console.log(Boolean(undefined)); // false
 console.log(Boolean(NaN)); // false
+
+// ==============================
+// 🔍 VARIÁVEIS E TIPOS DE DADOS AVANÇADOS
+// ==============================
+
+// ---------------------------------
+// ✅ Diferença entre var, let e const
+
+// var - escopo global ou de função, pode ser redeclarada (evitar!)
+var nome3 = "João";
+var nome3 = "Carlos"; // sem erro
+console.log(nome3); // Carlos
+
+// let - escopo de bloco, NÃO pode ser redeclarada
+let idade2 = 30;
+// let idade = 40; // Erro
+idade = 31; // Pode reatribuir
+console.log(idade);
+
+// const - escopo de bloco, NÃO pode ser redeclarada nem reatribuída
+const PI = 3.14;
+// PI = 3.1415; // Erro
+console.log(PI);
+
+// ---------------------------------
+// ✅ Tipagem dinâmica e typeof
+
+let teste = "Texto";
+console.log(typeof teste); // string
+
+teste = 123;
+console.log(typeof teste); // number
+
+teste = true;
+console.log(typeof teste); // boolean
+
+teste = null;
+console.log(typeof teste); // object (bug histórico do JS 😅)
+
+teste = undefined;
+console.log(typeof teste); // undefined
+
+// ---------------------------------
+// ✅ Objetos vs Arrays vs Funções
+
+let pessoa = {
+  nome: "Maria",
+  idade: 25,
+  falar() {
+    console.log(`Olá, meu nome é ${this.nome}`);
+  },
+};
+
+pessoa.falar(); // Olá, meu nome é Maria
+
+let numeros1 = [1, 2, 3, 4];
+console.log(numeros1[2]); // 3
+
+function saudacao(nome) {
+  return `Olá, ${nome}!`;
+}
+console.log(saudacao("Lucas")); // Olá, Lucas!
+
+// ---------------------------------
+// ✅ Conversões de tipo
+
+// String para número
+let numeroString = "123";
+let numeroReal = Number(numeroString);
+console.log(typeof numeroReal); // number
+
+// Número para string
+let num = 456;
+let comoTexto = String(num);
+console.log(typeof comoTexto); // string
+
+// Booleano para número
+console.log(Number(true)); // 1
+console.log(Number(false)); // 0
+
+// Parse de números com decimais
+let valor = "10.5";
+console.log(parseInt(valor)); // 10
+console.log(parseFloat(valor)); // 10.5
+
+// ---------------------------------
+// ✅ Comparações: == vs ===
+
+let a = "5";
+let b = 5;
+
+console.log(a == b); // true (compara só valor)
+console.log(a === b); // false (compara valor e tipo)
+
+// Evite usar == em projetos reais. Prefira sempre ===.
+
+// ---------------------------------
+// ✅ Truthy e Falsy
+
+// Falsy: false, 0, "", null, undefined, NaN
+if (!0) console.log("Zero é falsy"); // executa
+if (!"") console.log("String vazia é falsy"); // executa
+
+// Truthy: tudo o que não é falsy
+if ("JS") console.log("Strings não vazias são truthy");
+
+// ---------------------------------
+// 💪 EXERCÍCIOS DESAFIO
+// ---------------------------------
+
+// 1. Declare uma constante com seu nome e imprima o tipo
+const meuNome = "Laura";
+console.log(typeof meuNome); // string
+
+// 2. Crie uma variável com valor booleano e converta para número
+let ativo = true;
+console.log(Number(ativo)); // 1
+
+// 3. Faça uma comparação entre dois valores diferentes com ===
+let x = "10";
+let y = 10;
+console.log(x === y); // false
+
+// 4. Verifique se uma string está vazia usando truthy/falsy
+let texto = "";
+if (!texto) console.log("Texto vazio!");
+
+// 5. Crie um array, um objeto e uma função e verifique seus tipos
+let lista = [1, 2, 3];
+let usuario = { nome: "Ana" };
+function exibir() {
+  return "Função aqui!";
+}
+
+console.log(typeof lista); // object
+console.log(typeof usuario); // object
+console.log(typeof exibir); // function
+
+// Fim da parte avançada de variáveis e tipos 🧠🔍
