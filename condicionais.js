@@ -131,12 +131,13 @@ if (numero > 0) {
   console.log("Positivo!");
 } else if (numero < 0) {
   console.log("Negativo!");
+  s;
 } else {
   console.log("Zero");
 }
 
-//Crie um sistema de opções para um caixa eletrônico: "1 - Sacar", "2 - Depositar", "3 - Saldo".
-//  Use switch para processar a escolha.
+// Crie um sistema de opções para um caixa eletrônico: "1 - Sacar", "2 - Depositar", "3 - Saldo".
+// Use switch para processar a escolha.
 
 let caixa = 1;
 
